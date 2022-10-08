@@ -1,8 +1,34 @@
 package transport;
 
 public class Truck extends Transport implements Competing {
+    public enum Carrying {
+        N1("с полной массой до 3,5 тонн"),
+        N2("с полной массой свыше 3,5 до 12 тонн"),
+        N3("с полной массой свыше 12 тонн");
+
+        private String description;
+
+        Carrying (String description){
+            this.description = description;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+    };
+
+    private Carrying carrying;
+
     public Truck(String brand, String model) {
         super(brand, model);
+    }
+
+    public void determineType(){
+        if (carrying != null){
+            System.out.println("Тип грузоподъемности - " + carrying.getDescription());
+        } else {
+            System.out.println("Данных недостаточно");
+        }
     }
 
     @Override
@@ -28,5 +54,18 @@ public class Truck extends Transport implements Competing {
     @Override
     public int getMaxSpeed() {
         return 100;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " " + String.format("Грузоподьемность %s", carrying.name());
+    }
+
+    public void setCarrying(Carrying carrying) {
+        this.carrying = carrying;
+    }
+
+    public Carrying getCarrying() {
+        return carrying;
     }
 }
