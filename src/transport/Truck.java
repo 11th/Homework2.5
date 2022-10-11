@@ -42,6 +42,11 @@ public class Truck extends Transport implements Competing {
     }
 
     @Override
+    public boolean performChecks() throws Exception {
+        return false;
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Пит-стоп");
     }
