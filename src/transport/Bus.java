@@ -23,6 +23,7 @@ public class Bus extends Transport implements Competing {
 
     public Bus(String brand, String model) {
         super(brand, model);
+        setTransportType(TransportType.BUS);
     }
 
     public void determineType(){

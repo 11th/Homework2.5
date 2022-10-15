@@ -1,9 +1,13 @@
 package transport;
 
+import java.sql.Driver;
+
 public abstract class Transport {
     private String brand;
     private String model;
     private double engineVolume;
+    private TransportType transportType;
+    private Object sponsor;
 
     public Transport(String brand, String model) {
         this(brand, model, 0);
@@ -30,6 +34,14 @@ public abstract class Transport {
     public abstract void stop();
 
     public abstract boolean performChecks() throws Exception;
+
+    public void setTransportType(TransportType transportType) {
+        this.transportType = transportType;
+    }
+
+    public TransportType getTransportType() {
+        return transportType;
+    }
 
     public String getBrand() {
         return brand;

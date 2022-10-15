@@ -21,6 +21,7 @@ public class Truck extends Transport implements Competing {
 
     public Truck(String brand, String model) {
         super(brand, model);
+        setTransportType(TransportType.TRUCK);
     }
 
     public void determineType(){

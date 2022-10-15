@@ -28,6 +28,7 @@ public class Car extends Transport implements Competing {
 
     public Car(String brand, String model) {
         super(brand, model);
+        setTransportType(TransportType.CAR);
     }
 
     @Override
