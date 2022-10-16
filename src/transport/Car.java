@@ -43,6 +43,13 @@ public class Car extends Transport implements Competing {
 
     @Override
     public boolean performChecks() throws Exception{
+        System.out.println("Проверка авто");
+        return false;
+    }
+
+    @Override
+    public boolean performRepairs() throws Exception {
+        System.out.println("Ремонт авто");
         return true;
     }
 

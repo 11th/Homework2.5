@@ -1,13 +1,16 @@
 package transport;
 
-import java.sql.Driver;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Transport {
     private String brand;
     private String model;
     private double engineVolume;
     private TransportType transportType;
-    private Object sponsor;
+    private List<Driver> drivers = new ArrayList<>();
+    private List<Sponsor> sponsors = new ArrayList<>();
+    private List<Mechanic> mechanics = new ArrayList<>();
 
     public Transport(String brand, String model) {
         this(brand, model, 0);
@@ -34,6 +37,7 @@ public abstract class Transport {
     public abstract void stop();
 
     public abstract boolean performChecks() throws Exception;
+    public abstract boolean performRepairs() throws Exception;
 
     public void setTransportType(TransportType transportType) {
         this.transportType = transportType;
@@ -53,6 +57,18 @@ public abstract class Transport {
 
     public double getEngineVolume() {
         return engineVolume;
+    }
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public List<Sponsor> getSponsors() {
+        return sponsors;
+    }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
     }
 
     @Override

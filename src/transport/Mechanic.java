@@ -1,6 +1,6 @@
-import transport.TransportType;
+package transport;
 
-public class Mechanic {
+public class Mechanic<T extends Transport> {
     private String name;
     private String surname;
     private String company;
@@ -29,12 +29,18 @@ public class Mechanic {
         }
     }
 
-    public void doService(){
-        System.out.println("Провожу техобслуживание");
+    public void doService(T transport) throws Exception {
+        if (!transportType.equals(transport.getTransportType())){
+            throw new Exception("Механик может работать только с транспортом " + getTransportType().getName());
+        }
+        transport.performChecks();
     }
 
-    public void doRepair(){
-        System.out.println("Ремонтирую машину");
+    public void doRepair(T transport) throws Exception {
+        if (!transportType.equals(transport.getTransportType())){
+            throw new Exception("Механик может работать только с транспортом " + getTransportType().getName());
+        }
+        transport.performRepairs();
     }
 
     public String getName() {
@@ -51,5 +57,10 @@ public class Mechanic {
 
     public TransportType getTransportType() {
         return transportType;
+    }
+
+    @Override
+    public String toString() {
+        return getName() + " " + getSurname();
     }
 }

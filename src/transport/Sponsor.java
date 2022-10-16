@@ -1,3 +1,5 @@
+package transport;
+
 public class Sponsor {
     private String name;
     private double moneyAmount;
@@ -29,5 +31,10 @@ public class Sponsor {
 
     public double getMoneyAmount() {
         return moneyAmount;
+    }
+
+    @Override
+    public String toString() {
+        return getName();
     }
 }
