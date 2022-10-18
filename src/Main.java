@@ -57,6 +57,7 @@ public class Main {
         bmw.getDrivers().add(mitya);
         bmw.getMechanics().add(vasya);
         bmw.getSponsors().add(sber);
+        bmw.getSponsors().add(sber);
 
         kamaz.getDrivers().add(sasha);
         kamaz.getMechanics().add(petya);
