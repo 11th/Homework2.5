@@ -1,7 +1,4 @@
-import transport.Bus;
-import transport.Car;
-import transport.Competing;
-import transport.Truck;
+import transport.*;
 
 import javax.sound.midi.Track;
 
@@ -37,12 +34,37 @@ public class Main {
         printMaxSpeed(bmw, kamaz, paz);
 
         System.out.println("***");
-        Driver<Car> mitya = new Driver<>("Митя", bmw);
-        System.out.println(mitya);
-        Driver<Truck> sasha = new Driver<>("Саша", kamaz);
-        System.out.println(sasha);
-        Driver<Bus> vova = new Driver<>("Вова", paz);
-        System.out.println(vova);
+        try {
+            Driver<Car> mitya = new Driver<>("Митя", "B", bmw);
+            System.out.println(mitya);
+            Driver<Truck> sasha = new Driver<>("Саша", "D", kamaz);
+            System.out.println(sasha);
+            Driver<Bus> vova = new Driver<>("Вова", "", paz);
+            System.out.println(vova);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("***");
+        checkTransports(bmw, kamaz, paz);
+    }
+
+    private static void checkTransports(Transport... transports){
+        for (Transport transport: transports) {
+            checkTransport(transport);
+        }
+    }
+
+    private static void checkTransport(Transport transport){
+        try {
+            if (transport.performChecks()){
+                System.out.println(transport.getBrand() + " " + transport.getModel() + " " + "проверку прошел");
+            } else {
+                System.out.println(transport.getBrand() + " " + transport.getModel() + " " + "проверку не прошел");
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void printMaxSpeed(Competing... transports) {

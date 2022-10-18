@@ -44,6 +44,11 @@ public class Bus extends Transport implements Competing {
     }
 
     @Override
+    public boolean performChecks() throws Exception{
+        throw new Exception("Автобусы не проходят проверку");
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Пит-стоп");
     }

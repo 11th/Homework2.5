@@ -29,6 +29,8 @@ public abstract class Transport {
 
     public abstract void stop();
 
+    public abstract boolean performChecks() throws Exception;
+
     public String getBrand() {
         return brand;
     }
