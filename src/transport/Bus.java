@@ -23,6 +23,7 @@ public class Bus extends Transport implements Competing {
 
     public Bus(String brand, String model) {
         super(brand, model);
+        setTransportType(TransportType.BUS);
     }
 
     public void determineType(){
@@ -45,7 +46,14 @@ public class Bus extends Transport implements Competing {
 
     @Override
     public boolean performChecks() throws Exception{
+        System.out.println("Проверка автобуса");
         throw new Exception("Автобусы не проходят проверку");
+    }
+
+    @Override
+    public boolean performRepairs() throws Exception {
+        System.out.println("Ремонт автобуса");
+        return false;
     }
 
     @Override

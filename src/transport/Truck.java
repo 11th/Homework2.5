@@ -21,6 +21,7 @@ public class Truck extends Transport implements Competing {
 
     public Truck(String brand, String model) {
         super(brand, model);
+        setTransportType(TransportType.TRUCK);
     }
 
     public void determineType(){
@@ -43,6 +44,13 @@ public class Truck extends Transport implements Competing {
 
     @Override
     public boolean performChecks() throws Exception {
+        System.out.println("Проверка грузовика");
+        return false;
+    }
+
+    @Override
+    public boolean performRepairs() throws Exception {
+        System.out.println("Ремонт грузовика");
         return false;
     }
 
